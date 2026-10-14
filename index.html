@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Meet three dog breeds and care for a virtual companion in your browser.">
+  <title>Virtual Dog Park</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="page-header">
+    <a class="brand" href="#">🐾 Virtual Dog Park</a>
+    <a href="#your-dog">Visit your dog <span aria-hidden="true">↗</span></a>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="intro-title">
+      <p class="eyebrow">A little park. A new best friend.</p>
+      <h1 id="intro-title">Good days start<br>with a wag.</h1>
+      <p>Meet the locals, adopt a companion, and make a little time for play.</p>
+      <a class="button" href="#your-dog">Find your companion <span aria-hidden="true">→</span></a>
+      <img class="intro-dog" src="assets/golden-retriever.svg" alt="A golden dog sitting happily">
+    </section>
+
+    <section class="breeds" aria-labelledby="breeds-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Meet the locals</p><h2 id="breeds-title">Dog Encyclopedia</h2></div>
+        <p>Three breeds. Plenty of personality.</p>
+      </div>
+      <div class="breed-grid">
+        <article class="breed-card">
+          <div class="portrait peach"><img src="assets/beagle.svg" alt="An illustrated Beagle"></div>
+          <div class="breed-copy"><h3>Beagle</h3><p class="subtitle">The curious explorer</p>
+            <dl><dt>Size</dt><dd>Small to medium</dd><dt>Temperament</dt><dd>Cheerful, curious, sociable</dd><dt>Care</dt><dd>Daily walks and plenty of sniffing time</dd></dl>
+          </div>
+        </article>
+        <article class="breed-card">
+          <div class="portrait yellow"><img src="assets/golden-retriever.svg" alt="An illustrated Golden Retriever"></div>
+          <div class="breed-copy"><h3>Golden Retriever</h3><p class="subtitle">The friendly companion</p>
+            <dl><dt>Size</dt><dd>Large</dd><dt>Temperament</dt><dd>Gentle, friendly, eager to learn</dd><dt>Care</dt><dd>Regular exercise and coat brushing</dd></dl>
+          </div>
+        </article>
+        <article class="breed-card">
+          <div class="portrait lavender"><img src="assets/poodle.svg" alt="An illustrated Poodle"></div>
+          <div class="breed-copy"><h3>Poodle</h3><p class="subtitle">The clever playmate</p>
+            <dl><dt>Size</dt><dd>Toy, miniature, or standard</dd><dt>Temperament</dt><dd>Alert, active, quick to learn</dd><dt>Care</dt><dd>Regular grooming and mental activity</dd></dl>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="companion" id="your-dog" aria-labelledby="companion-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">A friend of your own</p><h2 id="companion-title">My Virtual Dog</h2></div>
+        <p>Small moments of care add up.</p>
+      </div>
+      <div class="companion-panel">
+        <div class="pet-portrait"><img id="pet-image" src="assets/beagle.svg" alt="Your virtual dog"><span id="pet-stage">Ready to meet you</span></div>
+        <form id="adopt-form" novalidate>
+          <h3>Say hello to your new friend.</h3>
+          <p>Pick a breed and a name. We will remember your dog in this browser.</p>
+          <label for="breed">Breed</label>
+          <select id="breed" name="breed"><option>Beagle</option><option>Golden Retriever</option><option>Poodle</option></select>
+          <label for="pet-name">Dog name</label>
+          <input id="pet-name" name="name" maxlength="20" autocomplete="off" aria-describedby="name-help form-error">
+          <small id="name-help">Use 1–20 characters. A name made of spaces does not count.</small>
+          <p id="form-error" class="error" role="alert"></p>
+          <button class="button" type="submit">Adopt a friend <span aria-hidden="true">→</span></button>
+        </form>
+        <div id="pet-card" hidden>
+          <p class="eyebrow" id="pet-breed"></p><h3 id="pet-title"></h3>
+          <div class="pet-facts"><span>Day <strong id="pet-day"></strong></span><span id="growth-stage"></span></div>
+          <label for="happiness">Happiness <strong id="happiness-value"></strong></label>
+          <progress id="happiness" max="100" value="50"></progress>
+          <div class="growth-line"><label for="growth">Growing up</label><span>Adult on day 4</span></div>
+          <progress id="growth" max="4" value="1"></progress>
+          <div class="actions"><button class="button" id="feed" type="button">🥣 Feed</button><button class="button" id="play" type="button">🎾 Play</button><button class="button secondary" id="next-day" type="button">Next day →</button></div>
+          <p id="pet-message" role="status" aria-live="polite"></p>
+          <button class="text-button" id="reset" type="button">Start over</button>
+          <div id="reset-confirm" class="reset-confirm" role="group" aria-label="Confirm reset" hidden>
+            <p>Remove your saved dog and adopt a new friend?</p>
+            <button class="button secondary" id="keep-dog" type="button">Keep my dog</button>
+            <button class="button" id="remove-dog" type="button">Remove dog</button>
+          </div>
+        </div>
+      </div>
+      <p id="storage-message" class="storage-message" role="status">Your dog stays on this device. No account needed.</p>
+      <noscript><p>Enable JavaScript to adopt and care for a virtual dog.</p></noscript>
+    </section>
+  </main>
+  <footer><span>🐾 Virtual Dog Park</span><span>Keep a little room for play.</span></footer>
+</body>
+</html>
